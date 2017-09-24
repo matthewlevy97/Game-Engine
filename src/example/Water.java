@@ -15,7 +15,7 @@ public class Water extends GameObject {
 
 		try {
 			BufferedImage[][] animations = new BufferedImage[1][];
-			BufferedImage sheet = Sprites.loadSpriteSheet("C:\\Users\\levym\\Downloads\\Sprite Sheets\\water.png");
+			BufferedImage sheet = Sprites.loadSpriteSheet("images//water.png");
 			
 			animations[0] = Sprites.getSpriteStrip(sheet, 0, 0, 15, 32, 32);
 			

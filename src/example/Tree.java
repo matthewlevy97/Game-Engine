@@ -13,7 +13,7 @@ public class Tree extends GameObject {
 		super(x, y, 255, 100);
 		
 		try {
-			BufferedImage s = Sprites.loadSpriteSheet("C:\\Users\\levym\\Downloads\\Sprite Sheets\\big_tree.png");
+			BufferedImage s = Sprites.loadSpriteSheet("images//big_tree.png");
 			
 			setSprite(Sprites.getSpriteStrip(s, 0, 0, 1, 255, 255)[0]);
 		} catch (IOException e) {
