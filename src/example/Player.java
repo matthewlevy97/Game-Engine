@@ -18,6 +18,7 @@ public class Player extends GameObject {
 		
 		try {
 			BufferedImage[][] animations = new BufferedImage[8][];
+			BufferedImage sheet = Sprites.loadSpriteSheet("images//spider_giant.png");
 			
 			animations[0] = Sprites.getSpriteStrip(sheet, 0, 0, 12, 128, 128);  // Left
 			animations[1] = Sprites.getSpriteStrip(sheet, 1, 0, 12, 128, 128);  // Left-Up
