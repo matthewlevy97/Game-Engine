@@ -71,7 +71,7 @@ public class GameHandler extends Handler {
 		}
 
 	}
-	public void draw(Graphics2D g) {
+	public void draw(Graphics2D g) {		
 		// Draw each object
 		GameObject player = null;
 		for(int i = 0, j = visibleObjects.size(); i < j; i++) {

@@ -67,8 +67,6 @@ public abstract class OptionMenuHandler extends GameHandler {
 		if (selectedOption >= options.size()) {
 			selectedOption = 0;
 		}
-		
-		System.out.println(selectedOption);
 	}
 	
 	protected abstract void optionSelected(int selectedOption);

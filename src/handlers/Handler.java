@@ -1,6 +1,6 @@
 package handlers;
 
-public abstract class Handler {
+public abstract class Handler extends Object {
 	
 	public Handler() {
 		setup();

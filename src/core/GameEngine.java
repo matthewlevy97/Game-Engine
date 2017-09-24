@@ -27,6 +27,7 @@ import utils.Minimap;
  * GUI screens and selecting options
  * Finish SoundHandler
  * Add Javadoc for all API calls
+ * Add Lights
  * 
  */
 
@@ -238,10 +239,10 @@ public class GameEngine extends JPanel implements Runnable {
 		((GameHandler)getHandler(GAME_HANDLER)).setInterpolation(interpolation);
 		((GameHandler)getHandler(GAME_HANDLER)).draw(g);
 		frameCount++;
-
+		
 		// Revert Translation
 		g.translate(-camera.getX(), -camera.getY());
-
+		
 		// Create minimap
 		if(minimap != null) {
 			img = minimap.createMiniMap(image);

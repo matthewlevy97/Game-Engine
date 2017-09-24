@@ -28,7 +28,7 @@ public class test {
 		((GameHandler) engine.getHandler(GameEngine.GAME_HANDLER)).addGameObject(p);     // Add player to game
 		((CameraHandler) engine.getHandler(GameEngine.CAMERA_HANDLER)).followObject(p);  // Attach camera to player
 		
-		// Create alot of water to show how FPS isn't really effected
+		// Create a lot of water to show how FPS isn't really effected
 		Water w;
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {

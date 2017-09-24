@@ -17,12 +17,19 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class SoundHandler extends Handler {
 
 	private HashMap<String, SoundPlayer> sounds;
-
+	
+	public void addSound(String soundLocation) {
+		sounds.put(soundLocation, new SoundPlayer(soundLocation));
+	}
+	public SoundPlayer removeSound(String soundLocation) {
+		return sounds.remove(soundLocation);
+	}
+	
 	@Override
 	public void setup() {
 		sounds = new HashMap<String, SoundPlayer>();
 	}
-
+	
 	@Override
 	public void update() {
 		String[] soundNames = sounds.keySet().toArray(new String[sounds.size()]);
@@ -30,16 +37,27 @@ public class SoundHandler extends Handler {
 			 
 		}
 	}
+	
 
+	@Override
+	public void onAdd() {}
+
+	@Override
+	public void onRemove() {}
+	
 	class SoundPlayer implements Runnable, LineListener {
 
 		private File audioFile;
 		private boolean completed;
 		private int errno;
-
+		private Thread t;
+		
 		public SoundPlayer(String songPath) {
 			audioFile = new File(songPath);
 			errno = 0;
+			
+			t = new Thread(this);
+			t.start();
 		}
 		
 		/**
@@ -75,7 +93,8 @@ public class SoundHandler extends Handler {
 		// GETTERS
 		public int getErrno() { return errno; }
 		public boolean isCompleted() { return completed; }
-
+		public Thread getThread() { return t; }
+		
 		@Override
 		public void update(LineEvent e) {
 			if (e.getType() == LineEvent.Type.STOP) {
@@ -83,10 +102,4 @@ public class SoundHandler extends Handler {
 			}
 		}
 	}
-
-	@Override
-	public void onAdd() {}
-
-	@Override
-	public void onRemove() {}
 }
